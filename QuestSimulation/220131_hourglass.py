@@ -51,3 +51,31 @@ M개의 회전명령을 실행하고 난 후 아래와 같이 마당의 모래�
 362
 """
 
+n = int(input())
+t = [list(map(int,input().split())) for _ in range(n)]
+
+m = int(input())
+
+for i in range(m):
+    a,b,c = map(int,input().split())
+    if b == 0:
+        for _ in range(c):
+            t[a-1].append(t[a-1].pop(0))
+    else:
+        for _ in range(c):
+            t[a - 1].insert(0,t[a-1].pop())
+a = 0
+b = int(n)
+sum = 0
+for i in range(n):
+    if i < (n // 2):
+        for j in range(a,b):
+            sum += t[i][j]
+        a += 1
+        b -= 1
+    else:
+        for j in range(a,b):
+            sum += t[i][j]
+        a -= 1
+        b += 1
+print(sum)
