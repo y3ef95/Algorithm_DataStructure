@@ -24,6 +24,7 @@
 
 import sys
 input = sys.stdin.readline
+#input().rstrip()
 
 def dfs(L):
     global cnt
